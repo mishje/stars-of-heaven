@@ -4,11 +4,14 @@ body{
     padding: 0;
 }
 body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
     display: grid;
-    grid-template: 8% 92% / 1fr;
-    grid-template-areas: 
-    "navigation"
-    "main";
+    grid-template: minmax(0, 8%) minmax(0, 92%) / 1fr;   /* tillåt raderna att inte växa */
+    grid-template-areas:
+        "navigation"
+        "main";
 }
 nav ul{
     list-style-type: none;
@@ -59,6 +62,21 @@ li a, .home{
     grid-template: minmax(0, 1fr) / 1fr 3fr 1fr;
     grid-template-areas: 
     "left content right";
+}
+.band{
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    min-height: 0;
+    overflow: auto;
+}
+.verk{
+    grid-area: main;
+    background-color: grey;
+    min-height: 0;
+    overflow: auto;
 }
 .left{
     grid-area: left;
@@ -133,7 +151,7 @@ li a, .home{
     height: 100%;
     object-fit: cover;
 }
-.left ol{
+.toplist{
     margin: 0;
     padding: 1rem;
     padding-left: 3rem;
@@ -189,4 +207,124 @@ li a, .home{
     min-height: 0;
     object-fit: contain;
     display: block;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    height: fit-content ;
+    gap: 1rem; 
+    padding: 1rem;
+}
+.card{
+    background-color: rgb(0 0 0 / 50%);
+    width: 12rem;
+    color: white;
+    position: relative;
+    overflow: visible;
+    outline-offset: 2px;
+}
+.card img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.card h2{
+    margin: 0;
+    padding: 0.75rem;
+    text-align: center;
+    background-color: rgb(0 0 0 / 50%);
+}
+.card-more{
+    display: grid;
+    grid-template-rows: 0fr;              
+    transition: grid-template-rows 0.4s ease;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;  
+    background-color: rgb(0 0 0 / 50%);
+    border-radius: 0 0 5px 5px;
+}
+.card-more-inner{
+    overflow: hidden;
+    min-height: 0;
+}
+.card-more-inner p{
+    margin: 0;
+    padding: 0.75rem 1rem 0;
+}
+.card-more-inner p:last-child{
+    padding-bottom: 1rem;
+}
+.card:hover .card-more,
+.card:focus-within .card-more{
+    grid-template-rows: 1fr;               
+}
+.s-cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    height: fit-content ;
+    gap: 3rem; 
+    padding: 1rem;
+}
+.s-card{
+    background-color: rgb(0 0 0 / 50%);
+    width: 12rem;
+    color: white;
+    position: relative;
+    overflow: visible;
+    outline-offset: 2px;
+}
+.s-card img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.s-card h2{
+    margin: 0;
+    padding: 0.75rem;
+    text-align: center;
+    background-color: rgb(0 0 0 / 50%);
+}
+.s-card-more{
+    display: grid;
+    grid-template-rows: 0fr;              
+    transition: grid-template-rows 0.4s ease;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;  
+    background-color: rgb(0 0 0 / 50%);
+    border-radius: 0 0 5px 5px;
+}
+.s-card-more-inner{
+    overflow: hidden;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+}
+.s-card-more-inner ol{
+    margin: 0;
+    padding: 0.75rem 1rem 1rem;
+    list-style-position: inside;
+}
+.s-card-more-inner li{
+    margin-top: 0.4rem;
+}
+.s-card:hover .s-card-more,
+.s-card:focus-within .s-card-more{
+    grid-template-rows: 1fr;               
+}
+.s-card-more-inner ol{
+    
 }
