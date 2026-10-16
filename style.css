@@ -2,9 +2,6 @@ body{
     height: 100vh;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
     display: grid;
     grid-template: minmax(0, 8%) minmax(0, 92%) / 1fr; 
     grid-template-areas:
@@ -26,6 +23,16 @@ nav ul{
 }
 nav li, nav a{
     font-size: clamp(.5rem, 50cqh, 4rem);
+}
+#active{
+    font-size: clamp(.5rem, 60cqh, 4rem);
+    text-shadow: 0 0 10px rgb(7, 161, 161); 
+}
+.nav h1{
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    display: inline;  
 }
 li a{
     color: inherit;
@@ -123,9 +130,6 @@ li a, .home{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.a header h1{
-    
 }
 .text{
     grid-area: text;
@@ -286,8 +290,11 @@ li a, .home{
     overflow: visible;
     outline-offset: 2px;
 }
-.s-card:nth-child(2), .card:nth-child(2){
+.s-card:nth-child(even), .card:nth-child(even){
     background-color: rgba(56, 55, 55, 0.5);
+}
+.s-card li:nth-child(even), .card li:nth-child(even){
+    color: rgb(154, 154, 154);
 }
 .s-card img{
     display: block;
@@ -329,7 +336,4 @@ li a, .home{
 .s-card:hover .s-card-more,
 .s-card:focus-within .s-card-more{
     grid-template-rows: 1fr;               
-}
-.s-card-more-inner ol{
-    
 }
